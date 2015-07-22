@@ -29,12 +29,14 @@ $response = $reCaptcha->verifyResponse(
 <meta charset="UTF-8">
 <head>
 	<title>secreto</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 	<nav></nav>
-	<section>
+	<section class="contar">
 	<?php
       if ($response != null && $response->success) {
         echo "Hi " . $_POST["name"] . " (" . $_POST["email"] . "), thanks for submitting the form!";
@@ -47,15 +49,15 @@ $response = $reCaptcha->verifyResponse(
 }
     
     ?>
-		<form method="POST"  action="">
-			<legend>Contá tu secreto</legend>
-			<textarea name="secreto"></textarea>
-			<input type="text" name="name" required>
-			<input type="number" name="edad" required>
-			<input type="email" name="email" required>
+		<form method="POST"  action="guardar_secreto.php">
+			<h1>Este es el título</h1>
+			<textarea name="secreto" placerholder="ingresa tu secreto"></textarea>
+			<input type="text" name="nombre" required placeholder="nombre">
+			<span>,</span>
+			<input type="number" name="edad" required placerholder="edad">
+			<input type="email" name="email" required placerholder="email">
 			<div class="g-recaptcha" data-sitekey="6LdVLQoTAAAAAEONRyzG4C8fn1FeBaZ9RcD_Yg5v" data-callback="enableBtn"></div>
-			<input type="submit" value="enviar" id="enviar">
-			<input type="hidden" value="true" name="envio">			
+			<input type="submit" value="enviar" id="enviar" class="btn">	
 
 		</form>
 		<?php } ?>
